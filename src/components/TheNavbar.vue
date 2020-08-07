@@ -8,7 +8,9 @@
             <div class="burger-menu_line1"></div>
             <div class="burger-menu_line2"></div>
         </nav>
-        <PopupMenu v-model='showModal'></PopupMenu>
+        <transition name="modal-fade">
+            <PopupMenu v-show='showModal' @clicked='closeModal'></PopupMenu>
+        </transition>
     </div>
 </template>
 
@@ -28,7 +30,11 @@ export default {
     methods: {
         openModal () {
             this.showModal = !this.showModal; 
-        }
+        },
+
+        closeModal (value) {
+            this.showModal= false;
+        },
     }
 }
 </script>
@@ -74,8 +80,25 @@ export default {
 
     button{
         border: none; 
-        text-transform: uppercase;
+        text-transform: uppercase;  
         font-size: 2.250em;
-
     }
+
+    .modal-fade-enter-active 
+    {
+        transition: all .3s ease;
+    }
+
+    .modal-fade-leave-active 
+    {
+        transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+    }
+
+    .modal-fade-enter, .modal-fade-leave-to
+    /* .slide-fade-leave-active below version 2.1.8 */ 
+    {
+        transform: translateX(10px);
+        opacity: 0;
+    }
+
 </style>

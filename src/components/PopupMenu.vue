@@ -1,7 +1,7 @@
 <template>
-  <transition name="modal">
-    <div class="block-modal" v-show="value">
-
+  
+    <div class="block-modal"> 
+      <!-- v-show="value" -->
       <section class="modal_header">
         <div class="page-title">
           <h2>amandine Divay</h2>
@@ -13,15 +13,15 @@
         <div class="element-line"></div>
         <div class="modal_navigation-container">
           <div class="modal_navigation-container-links">
-            <h2>projets</h2>
+            <router-link to="/mes-projets"><h2>projets</h2></router-link>
             <h3>/ Explorer mes réalisations</h3>
           </div>
           <div class="modal_navigation-container-links">
-            <h2>bio</h2>
+            <router-link to="/bio"><h2>bio</h2></router-link>
             <h3>/ Me connaître un peu plus</h3>
           </div>
           <div class="modal_navigation-container-links">
-            <h2>contact</h2>
+            <router-link to="/contact"><h2>contact</h2></router-link>
             <h3>/ Comment me contacter</h3>
           </div>
         </div>
@@ -30,22 +30,20 @@
       <section class="modal_footer">
         <p>© 2020 Amandine Divay</p>
       </section>
-
     </div>
-  </transition>
 </template>
 
 <script>
 export default {
   name: "PopupMenu",
-  props: {
-    value: {
-      required: true,
-    },
-  },
+  // props: {
+  //   value: {
+  //     required: true,
+  //   },
+  // },
   methods: {
-    close() {
-      this.$emit("input", !this.value);
+    close(event) {
+      this.$emit("clicked", 'false');
     },
   },
 };
@@ -141,5 +139,11 @@ h3
   justify-content: flex-end;
   margin: 1vw;
 }
+
+a
+{
+  text-decoration: none;
+}
+
 
 </style>
