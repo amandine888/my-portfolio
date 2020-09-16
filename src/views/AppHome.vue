@@ -2,15 +2,15 @@
   <div>
       <NavBar :title="page.title"/>
       <header class="section_title">
-        <div class="section_my-infos">
+        <section class="section_my-infos">
           <h2>amandine divay</h2>
           <div class="div_full-square"></div>
           <h2>paris</h2>
-        </div>
-        <div class="section_main-title">
+        </section>
+        <section class="section_main-title">
           <div class="element_line"></div>
           <h1>développeuse web</h1>
-        </div>
+        </section>
       </header>
       <footer class="home_footer">
         <button class="home_footer_btn-projects">
